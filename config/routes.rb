@@ -1,13 +1,13 @@
 Rails.application.routes.draw do
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
   get "/" => "requests#index"
+  get "/request/new", to: "requests#create"
+  get "/requests/:id", to: "requests#show"
 
-  get "/request/new" => "requests#create"
+  get "/offer/new", to: "offers#create"
 
-  get "/offers" => "offers#offers"
+  get "/accept", to: "requests#accept"
 
-  get "/accept" => "requests#accept"
-
-  get "/profiles" => "profiles#profile"
+  get "/profiles", to: "profiles#profile"
 
 end

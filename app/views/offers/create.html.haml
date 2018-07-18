@@ -1,13 +1,13 @@
-%div.page-new-request
+%div.page-new-offer
   %div.title
-    %h2 Request Service
+    %h2 Offer Your Service
   %div.quote
-    "A clever, imaginative, humourous request can open closed doors and closed minds. --Percy Ross"
+    "Help others achieve their dreams and you will achieve yours. --Les Brown"
 
-  = form_for @request, url: {action: 'create'} do |f|
+  = form_for @offer, url: {action: 'create'} do |f|
     %div
-      %label Title
-      = f.text_field :title
+      %label Karma Points
+      = f.text_field :karma_points
     %div
       %label Description
       = f.text_area :description

@@ -6,9 +6,17 @@ $whitish: #F6F6F4;
 $greyish: #9E949A;
 $gold: #92773C;
 
+li {
+  list-style: none;
+  &:nth-child(even) {
+    background: $whitish;
+    &:hover {
+      background-color: $greyish;
+    }
+  }
+}
 .request-listing {
   li {
-    list-style: none;
     height: 50px;
     display: flex;
     align-items: center;
@@ -25,18 +33,16 @@ $gold: #92773C;
         color: $whitish;
       }
     }
-    &:nth-child(even) {
-      background: $whitish;
-      &:hover {
-        background-color: $greyish;
-      }
-    }
   }
 }
 
-.page-new-request {
+.page-new-request, .page-new-offer {
   text-align: center;
+  .title {
+    text-transform: uppercase;
+  }
   form {
+    margin-top: 100px;
     >div {
       margin: 15px 0;
     }
@@ -82,5 +88,33 @@ $gold: #92773C;
   .quote {
     font-style: italic;
     margin: 25px;
+  }
+}
+
+.page-show-request {
+  >div {
+    margin: 50px 0;
+    padding: 0 25px;
+  }
+  span {
+    display: block;
+    text-transform: uppercase;
+    font-weight: bold;
+    font-size: 18px;
+    margin-bottom: 10px;
+  }
+  .offer-listing {
+    padding: 0;
+    span {
+      padding: 0 25px;
+    }
+    li {
+      padding: 10px 25px;
+      span {
+        padding: 0;
+        font-size: 14px;
+        display: inline-block;
+      }
+    }
   }
 }

@@ -1,0 +1,17 @@
+%div.page-show-request
+  %div.title
+    %span Title:
+    = @request.title
+  %div.description
+    %span Description:
+    = @request.description
+  %div.offer-listing
+    %span Offers:
+    - @request.offers.each do |offer|
+      %li
+        %div
+          %span Karam Points:
+          = offer.karma_points
+        %div
+          %span Description:
+          = offer.description
