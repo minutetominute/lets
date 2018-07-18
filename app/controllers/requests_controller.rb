@@ -13,7 +13,4 @@ class RequestsController < ApplicationController
     @request = Request.new
   end
 
-  def create
-    @request = Request.new(params[:request])
-  end
 end
