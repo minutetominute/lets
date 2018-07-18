@@ -1,3 +1,19 @@
 // Place all the styles related to the requests controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+$dark_grey: #2D2B35;
+$whitish: #F6F6F4;
+
+.request-listing {
+  li {
+    color: $dark_grey;
+    list-style: none;
+    height: 50px;
+    display: flex;
+    align-items: center;
+    padding: 0 25px;
+    &:nth-child(2) {
+      background: $whitish;
+    }
+  }
+}

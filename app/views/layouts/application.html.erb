@@ -6,16 +6,28 @@
 
     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+
   </head>
 
   <body>
     <div class='nav-container'>
-      <div class='logo'>
-        <a href='/'>LETS</a>
-      </div>
+      <a class='logo-link' href='/'>
+        <div class='logo'></div>
+      </a>
+
       <div class='user-info'>
         <li>Karam Points</li>
         <li>UserName</li>
+      </div>
+    </div>
+    <div class='sub-nav-container'>
+      <div class='tab-listing'>
+        <li><a class="tab-link active" href="/">All</a></li>
+        <li><a class="tab-link" href="/my-requests">My Requests</a></li>
+        <li><a class="tab-link" href="/my-offers">My Offers</a></li>
+      </div>
+      <div class='new-request'>
+        <button type="button" class="btn btn-primary">New Request</button>
       </div>
     </div>
     <%= yield %>
