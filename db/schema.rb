@@ -17,6 +17,7 @@ ActiveRecord::Schema.define(version: 20180718154831) do
 
   create_table "offers", force: :cascade do |t|
     t.bigint "user_id"
+    t.integer "karma_points"
     t.text "description"
     t.string "aasm_state"
     t.index ["user_id"], name: "index_offers_on_user_id"
@@ -24,7 +25,6 @@ ActiveRecord::Schema.define(version: 20180718154831) do
 
   create_table "requests", force: :cascade do |t|
     t.bigint "user_id"
-    t.integer "karma_points"
     t.text "description"
     t.string "aasm_state"
     t.index ["user_id"], name: "index_requests_on_user_id"
@@ -32,10 +32,8 @@ ActiveRecord::Schema.define(version: 20180718154831) do
 
   create_table "transactions", force: :cascade do |t|
     t.bigint "offer_id"
-    t.bigint "request_id"
     t.string "aasm_state"
     t.index ["offer_id"], name: "index_transactions_on_offer_id"
-    t.index ["request_id"], name: "index_transactions_on_request_id"
   end
 
   create_table "users", force: :cascade do |t|
