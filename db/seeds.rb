@@ -40,7 +40,7 @@ requests.each do |request|
     Random.rand((2..(potential_offer_users.count/2)))
   )
 
-  offers = offer_users.each do |offer_user|
+  offers = offer_users.map do |offer_user|
     Offer.create!(
       user: offer_user,
       request: request,
@@ -49,14 +49,16 @@ requests.each do |request|
     )
   end
 
-  cancelled_offers = offers.sample(2)
+  cancelled_offers = offers.sample(1)
   cancelled_offers.each(&:cancel!)
 
-  rejected_offers = (offers - cancelled_offers).sample(2)
+  rejected_offers = (offers - cancelled_offers).sample(1)
   rejected_offers.each(&:timeout!)
 end
 
 puts "creating transactions"
+
+requests.each(&:reload)
 
 requests.sample(requests.count * percent_completed).each do |request|
   pending_offers = request.pending_offers

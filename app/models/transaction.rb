@@ -2,7 +2,7 @@ class Transaction < ActiveRecord::Base
   include AASM
 
   belongs_to :offer
-  belongs_to :request, through: :offer
+  delegate :request, :to => :offer
 
   aasm do
     state :open, initial: true
