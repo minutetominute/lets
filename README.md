@@ -25,3 +25,6 @@ Things you may want to cover:
 
 # Problems installing pg gem
 sudo env ARCHFLAGS="-arch x86_64" gem install pg
+
+# Problems install sqlite gem
+gem install sqlite3 -- --with-sqlite3-lib=/usr/lib
