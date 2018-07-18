@@ -1,10 +1,16 @@
-%div
-  %div
-    %strong
-      Create Request
-  %textarea
-  %div
-    %button
-      Send
-    %button
-      Cancel
+%div.page-new-request
+  %div.quote
+    "A clever, imaginative, humourous request can open closed doors and closed minds. --Percy Ross"
+
+  = form_for @request, url: {action: 'create'} do |f|
+    %div
+      %label Title
+      = f.text_field :title
+    %div
+      %label Description
+      = f.text_area :description
+    %div
+      = button_tag(type: 'submit', class: 'btn create') do
+        Create
+      = button_tag(type: 'button', class: 'btn cancel') do
+        Cancel

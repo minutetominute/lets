@@ -1,3 +1,4 @@
 %div.request-listing
   - @requests.each do |request|
-    %li= request[:name]
+    %li
+      %a= link_to(request.title, '/something')

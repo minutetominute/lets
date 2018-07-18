@@ -26,6 +26,10 @@ body {
   font-family: 'Karla', sans-serif;
 }
 
+a:link {
+  text-decoration: none;
+}
+
 .nav-container, .sub-nav-container {
   position: relative;
   display: flex;
@@ -77,9 +81,6 @@ body {
         background-color: $greyish;
         color: $whitish;
       }
-      &:link {
-        text-decoration: none;
-      }
     }
     li {
       position: relative;
@@ -93,7 +94,7 @@ body {
   .new-request {
     position: absolute;
     right: 25px;
-    button {
+    .button {
       background-color: $gold;
       text-transform: uppercase;
       padding: 10px;
@@ -101,6 +102,10 @@ body {
       border: none;
       border-radius: 5px;
       letter-spacing: .5px;
+      font-size: 14px;
+      &:hover {
+        background-color: darken($gold,10%);;
+      }
     }
   }
 }

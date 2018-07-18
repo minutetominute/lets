@@ -3,17 +3,84 @@
 // You can use Sass (SCSS) here: http://sass-lang.com/
 $dark_grey: #2D2B35;
 $whitish: #F6F6F4;
+$greyish: #9E949A;
+$gold: #92773C;
 
 .request-listing {
   li {
-    color: $dark_grey;
     list-style: none;
     height: 50px;
     display: flex;
     align-items: center;
     padding: 0 25px;
-    &:nth-child(2) {
-      background: $whitish;
+    a{
+      color: $dark_grey;
+      &:link {
+        text-decoration: none;
+      }
     }
+    &:hover {
+      background-color: $greyish;
+      a {
+        color: $whitish;
+      }
+    }
+    &:nth-child(even) {
+      background: $whitish;
+      &:hover {
+        background-color: $greyish;
+      }
+    }
+  }
+}
+
+.page-new-request {
+  text-align: center;
+  form {
+    >div {
+      margin: 15px 0;
+    }
+    label {
+      display: block;
+      font-weight: bold;
+      text-transform: uppercase;
+      letter-spacing: .5px;
+    }
+    input[type='text'], textarea {
+      width: 50%;
+      margin: 10px 0;
+      font-size: 16px;
+      color: $dark_grey;
+    }
+    input[type='text'] {
+      height: 25px;
+    }
+    textarea {
+      height: 100px;
+    }
+    .btn {
+      width: 150px;
+      padding: 15px;
+      margin: 0 5px;
+      text-transform: uppercase;
+      border-radius: 5px;
+      font-size: 14px;
+      &.create {
+        color: $whitish;
+        background-color: $gold;
+        &:hover {
+          background-color: darken($gold,10%);
+        }
+      }
+      &.cancel {
+        &:hover {
+          background-color: darken($whitish,10%);
+        }
+      }
+    }
+  }
+  .quote {
+    font-style: italic;
+    margin: 25px;
   }
 }
