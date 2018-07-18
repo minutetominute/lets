@@ -1,8 +1,10 @@
 Rails.application.routes.draw do
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
-  get "/" => "requests#index"
-  get "/request/new", to: "requests#create"
-  get "/requests/:id", to: "requests#show"
+  get "/" => "service_requests#index"
+  # get "/request/new", to: "requests#create"
+  # get "/requests/:id", to: "requests#show"
+
+  resource :service_requests
 
   get "/offer/new", to: "offers#create"
 
