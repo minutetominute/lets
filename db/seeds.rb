@@ -12,7 +12,7 @@ num_users = 30
 num_requests = 10
 percent_completed = 0.20
 
-# user creation
+puts "creating users"
 
 names = num_users.times.map do |idx|
   Faker::Name.name
@@ -22,7 +22,7 @@ users = names.map do |name|
   User.create!(name: name)
 end
 
-# request creation
+puts "creating requests"
 
 requests = num_users.times.map do |idx|
   Request.create!(
@@ -31,7 +31,7 @@ requests = num_users.times.map do |idx|
   )
 end
 
-# offer creation
+puts "creating offers"
 
 requests.each do |request|
   potential_offer_users = users - [request.user]
@@ -42,7 +42,7 @@ requests.each do |request|
 
   offers = offer_users.each do |offer_user|
     Offer.create!(
-      user: user,
+      user: offer_user,
       request: request,
       karma_points: Random.rand((1..100)),
       description: Faker::Hacker.say_something_smart
@@ -56,7 +56,7 @@ requests.each do |request|
   rejected_offers.each(&:timeout!)
 end
 
-# transaction creation
+puts "creating transactions"
 
 requests.sample(requests.count * percent_completed).each do |request|
   pending_offers = request.pending_offers
