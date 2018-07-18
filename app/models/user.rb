@@ -3,7 +3,8 @@ class User < ActiveRecord::Base
   has_many :service_requests
 
   def service_request_points
-    service_requests.where()
+    service_requests.joins(offers: :service_transactions)
+      .not.where(offers: {service_transactions: nil})
       .map(:karma_points)
       .reduce(:+)
   end
