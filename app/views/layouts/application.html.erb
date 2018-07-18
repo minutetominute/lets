@@ -16,8 +16,8 @@
       </a>
 
       <div class='user-info'>
-        <li>Karam Points</li>
-        <li>UserName</li>
+        <li>Karma Points</li>
+        <li><%= @current_user.name %></li>
       </div>
     </div>
     <div class='sub-nav-container'>
@@ -30,6 +30,9 @@
         <%= link_to 'New Request', '/request/new', class: 'button' %>
       </div>
     </div>
+    <% flash.each do |message_type, message| %>
+      <div class="alert alert-<%= message_type %>"><%= message %></div>
+    <% end %>
     <%= yield %>
   </body>
 </html>

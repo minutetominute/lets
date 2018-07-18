@@ -1,4 +1,6 @@
 class RequestsController < ApplicationController
+  before_action :current_user
+
   def index
     @requests = Request.all
   end

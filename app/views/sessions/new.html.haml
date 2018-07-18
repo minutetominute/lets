@@ -1,0 +1,8 @@
+%div.new-session
+  = form_for :session, url: {action: 'create'} do |f|
+    %div
+      %label Name
+      = f.text_field :name
+    %div
+      = button_tag(type: 'submit', class: 'btn create') do
+        Log in
