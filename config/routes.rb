@@ -10,4 +10,6 @@ Rails.application.routes.draw do
 
   get "/profiles" => "profiles#profile"
 
+  get "/users/:id" => "users#show"
+
 end
