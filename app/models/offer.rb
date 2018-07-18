@@ -8,7 +8,7 @@ class Offer < ActiveRecord::Base
     state :pending, :initial => true
     state :completed, :rejected, :cancelled
 
-    event :remove do
+    event :cancel do
       transitions :from => :pending, :to => :cancelled
     end
 

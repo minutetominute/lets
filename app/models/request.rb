@@ -13,4 +13,8 @@ class Request < ActiveRecord::Base
     end
   end
 
+  def pending_offers
+    offers.where(aasm_state: :pending)
+  end
+
 end
