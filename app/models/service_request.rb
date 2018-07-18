@@ -1,4 +1,4 @@
-class Request < ActiveRecord::Base
+class ServiceRequest < ActiveRecord::Base
   include AASM
 
   has_many :offers
