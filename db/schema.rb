@@ -17,9 +17,11 @@ ActiveRecord::Schema.define(version: 20180718154831) do
 
   create_table "offers", force: :cascade do |t|
     t.bigint "user_id"
+    t.bigint "request_id"
     t.integer "karma_points"
     t.text "description"
     t.string "aasm_state"
+    t.index ["request_id"], name: "index_offers_on_request_id"
     t.index ["user_id"], name: "index_offers_on_user_id"
   end
 
