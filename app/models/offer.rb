@@ -1,4 +1,4 @@
-class Offer
+class Offer < ActiveRecord::Base
   include AASM
 
   aasm do

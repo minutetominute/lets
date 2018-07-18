@@ -1,4 +1,4 @@
-class Request
+class Request < ActiveRecord::Base
   include AASM
 
   aasm do

@@ -1,4 +1,4 @@
-class Transaction
+class Transaction < ActiveRecord::Base
   include AASM
 
   aasm do
