@@ -27,7 +27,8 @@ puts "creating requests"
 requests = num_users.times.map do |idx|
   Request.create!(
     user: users.sample,
-    description: Faker::TheITCrowd.quote
+    description: Faker::TheITCrowd.quote,
+    title: Faker::ChuckNorris.fact
   )
 end
 
