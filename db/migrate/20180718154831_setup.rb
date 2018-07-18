@@ -19,7 +19,7 @@ class Setup < ActiveRecord::Migration[5.1]
     end
 
     create_table :transactions do |t|
-      t.references :offer
+      t.references :offers
       t.string :aasm_state
     end
   end
