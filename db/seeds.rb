@@ -9,7 +9,6 @@
 require 'faker'
 
 num_users = 30
-num_requests = 10
 percent_completed = 0.20
 
 puts "creating users"
@@ -22,10 +21,10 @@ users = names.map do |name|
   User.create!(name: name)
 end
 
-puts "creating requests"
+puts "creating service requests"
 
 requests = num_users.times.map do |idx|
-  Request.create!(
+  ServiceRequest.create!(
     user: users.sample,
     description: Faker::TheITCrowd.quote,
     title: Faker::ChuckNorris.fact
@@ -44,7 +43,7 @@ requests.each do |request|
   offers = offer_users.map do |offer_user|
     Offer.create!(
       user: offer_user,
-      request: request,
+      service_request: request,
       karma_points: Random.rand((1..100)),
       description: Faker::Hacker.say_something_smart
     )
@@ -66,15 +65,15 @@ requests.sample(requests.count * percent_completed).each do |request|
 
   completed_offer = pending_offers.sample
 
-  completed_transaction = Transaction.create!(
-      offers: completed_offer
+  completed_transaction = ServiceTransaction.create!(
+      offer: completed_offer
   )
   completed_transaction.complete!
 
   cancelled_offer = (pending_offers - [completed_offer]).sample
 
-  cancelled_transaction = Transaction.create!(
-      offers: cancelled_offer
+  cancelled_transaction = ServiceTransaction.create!(
+      offer: cancelled_offer
   )
 
   cancelled_transaction.cancel!
