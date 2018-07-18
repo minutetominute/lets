@@ -8,13 +8,16 @@ class Transaction < ActiveRecord::Base
     state :open, initial: true
     state :completed, :cancelled
 
-    event :complete do
+    event :complete, :after => :complete_offer do
       transitions :from => :open, :to => :completed
     end
 
     event :cancel do
       transitions :from => :open, :to => :cancelled
     end
+  end
 
+  def complete_offer
+    offer.complete!
   end
 end
