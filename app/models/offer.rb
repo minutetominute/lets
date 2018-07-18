@@ -1,7 +1,7 @@
 class Offer < ActiveRecord::Base
   include AASM
 
-  belongs_to :service_request
+  belongs_to :request
   belongs_to :user
 
   aasm do

@@ -1,8 +1,8 @@
-class ServiceTransaction < ActiveRecord::Base
+class Transaction < ActiveRecord::Base
   include AASM
 
-  belongs_to :offer
-  delegate :service_request, :to => :offer
+  belongs_to :offers
+  delegate :request, :to => :offers
 
   aasm do
     state :open, initial: true
