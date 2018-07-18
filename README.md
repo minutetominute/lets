@@ -22,3 +22,6 @@ Things you may want to cover:
 * Deployment instructions
 
 * ...
+
+# Problems installing pg gem
+sudo env ARCHFLAGS="-arch x86_64" gem install pg
