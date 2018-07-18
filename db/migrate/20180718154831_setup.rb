@@ -12,6 +12,7 @@ class Setup < ActiveRecord::Migration[5.1]
 
     create_table :offers do |t|
       t.references :user, index: true
+      t.references :request
       t.integer :karma_points
       t.text :description
       t.string :aasm_state
