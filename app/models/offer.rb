@@ -12,7 +12,7 @@ class Offer < ActiveRecord::Base
       transitions :from => :pending, :to => :cancelled
     end
 
-    event :log_transaction do
+    event :complete do
       transitions :from => :pending, :to => :completed
     end
 
