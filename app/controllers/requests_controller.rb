@@ -7,4 +7,8 @@ class RequestsController < ApplicationController
       { name: "Request 3" }
     ]
   end
+
+  def create_request
+  end
+
 end
