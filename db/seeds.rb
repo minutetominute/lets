@@ -37,7 +37,7 @@ requests.each do |request|
   potential_offer_users = users - [request.user]
 
   offer_users = potential_offer_users.sample(
-    Random.rand((2..(potential_offer_users.count/2)))
+    Random.rand((4..(potential_offer_users.count/2)))
   )
 
   offers = offer_users.map do |offer_user|
