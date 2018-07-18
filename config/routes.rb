@@ -4,8 +4,10 @@ Rails.application.routes.draw do
 
   get "/request/new" => "requests#create"
 
-  get "/offer" => "requests#offer"
+  get "/offers" => "offers#offers"
 
   get "/accept" => "requests#accept"
+
+  get "/profiles" => "profiles#profile"
 
 end
