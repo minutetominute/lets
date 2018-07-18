@@ -3,4 +3,8 @@ Rails.application.routes.draw do
   get "/home" => "requests#index"
 
   get "/create" => "requests#create"
+
+  get "/offer" => "requests#offer"
+
+  get "/accept" => "requests#accept"
 end
