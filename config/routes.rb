@@ -8,4 +8,6 @@ Rails.application.routes.draw do
 
   get "/accept" => "requests#accept"
 
+  get "/users/:id" => "users#show"
+
 end
