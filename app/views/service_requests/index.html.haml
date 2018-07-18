@@ -1,0 +1,4 @@
+%div.request-listing
+  - @service_requests.each do |request|
+    %li
+      %a= link_to(request.title, "/service_requests/#{request.id}")
