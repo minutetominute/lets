@@ -9,8 +9,11 @@ class RequestsController < ApplicationController
     @request = Request.find(params[:id])
   end
 
-  def create
+  def new
     @request = Request.new
   end
 
+  def create
+    @request = Request.new(params[:request])
+  end
 end
