@@ -7,4 +7,5 @@ Rails.application.routes.draw do
   get "/offer" => "requests#offer"
 
   get "/accept" => "requests#accept"
+
 end
