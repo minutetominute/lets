@@ -6,15 +6,15 @@ $whitish: #F6F6F4;
 $greyish: #9E949A;
 $gold: #92773C;
 
-li {
-  list-style: none;
-  &:nth-child(even) {
-    background: $whitish;
-    &:hover {
-      background-color: $greyish;
+.request-listing, .page-show-request {
+  li {
+    list-style: none;
+    &:nth-child(even) {
+      background: $whitish;
     }
   }
 }
+
 .request-listing {
   li {
     height: 50px;
@@ -31,6 +31,11 @@ li {
       background-color: $greyish;
       a {
         color: $whitish;
+      }
+    }
+    &:nth-child(even) {
+      &:hover {
+        background-color: $greyish;
       }
     }
   }
