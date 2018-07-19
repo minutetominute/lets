@@ -5,7 +5,9 @@ class ServiceTransaction < ActiveRecord::Base
   delegate :service_request, :to => :offer
   has_one :confirmation
 
-  aasm do
+  after_create :create_confirmation!
+
+  aasm :whiny_transitions => false do
     state :open, initial: true
     state :completed, :cancelled
 
@@ -29,7 +31,11 @@ class ServiceTransaction < ActiveRecord::Base
   end
 
   def parties_agree?
-    confirmation.requester? && confirmation.offerer?
+    !confirmation.service_requester_id.nil? && !confirmation.offerer_id.nil?
+  end
+
+  def create_confirmation!
+    Confirmation.create!(service_transaction: self)
   end
 
 end

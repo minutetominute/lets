@@ -8,7 +8,7 @@ class ServiceRequest < ActiveRecord::Base
     state :open, :initial => true
     state :completed
 
-    event :log_transaction do
+    event :complete do
       transitions :from => :open, :to => :completed
     end
   end

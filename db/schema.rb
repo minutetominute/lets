@@ -17,12 +17,12 @@ ActiveRecord::Schema.define(version: 20180719161000) do
 
   create_table "confirmations", force: :cascade do |t|
     t.bigint "offerer_id"
-    t.bigint "requester_id"
+    t.bigint "service_requester_id"
     t.bigint "service_transaction_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["offerer_id"], name: "index_confirmations_on_offerer_id"
-    t.index ["requester_id"], name: "index_confirmations_on_requester_id"
+    t.index ["service_requester_id"], name: "index_confirmations_on_service_requester_id"
     t.index ["service_transaction_id"], name: "index_confirmations_on_service_transaction_id"
   end
 
@@ -77,5 +77,5 @@ ActiveRecord::Schema.define(version: 20180719161000) do
   end
 
   add_foreign_key "confirmations", "users", column: "offerer_id"
-  add_foreign_key "confirmations", "users", column: "requester_id"
+  add_foreign_key "confirmations", "users", column: "service_requester_id"
 end

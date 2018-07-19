@@ -1,6 +1,6 @@
-class Confirmation
-  belongs_to :offerer
-  belongs_to :requester
+class Confirmation < ActiveRecord::Base
+  belongs_to :offerer, optional: true
+  belongs_to :requester, optional: true
   belongs_to :service_transaction
 
   after_commit :send_confirm_event!
