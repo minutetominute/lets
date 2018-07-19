@@ -1,6 +1,7 @@
 class User < ActiveRecord::Base
   has_many :offers
   has_many :service_requests
+  has_many :confirmations
 
   def completed_service_request_offers
     ServiceTransaction.where(aasm_state: :completed)
