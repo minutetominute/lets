@@ -2,7 +2,7 @@ class UsersController < ApplicationController
   before_action :current_user, :current_path
 
   def show
-    @user = User.find(4)#params[:id]
+    @user = User.find(params[:id])
   end
 
   def my_requests
