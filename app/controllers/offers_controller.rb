@@ -41,8 +41,8 @@ class OffersController < ApplicationController
 
   def complete_offer_as_offerer
     @offer = Offer.find(params[:offer_id])
-    @offer.complete!
-    @current_user.confirm_offer_service_transaction!
+    @service_transaction = @offer.service_transactions.first
+    @current_user.confirm_offer_service_transaction!(@service_transaction.id)
 
     redirect_to service_request_path(@offer.service_request)
   end

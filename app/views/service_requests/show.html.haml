@@ -15,6 +15,9 @@
     - @service_request.offers.each do |offer|
       %li
         %div
+          %span Member Name:
+          = offer.user.name
+        %div
           %span Karma Points:
           = offer.karma_points
         %div
