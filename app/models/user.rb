@@ -1,25 +1,22 @@
 class User < ActiveRecord::Base
-  has_many :completed_offers, -> {
-    joins(:offers).where(
-      offers: { aasm_state: :completed }
-    )
-  }
-  
   has_many :offers
   has_many :service_requests
-  has_many :offer_transactions, through: :offer
-  has_many :request_transactions, through: :transactions
 
-  def request_points
-    request_transactions.reduce do |agg, transaction|
-      agg += transaction.offer.karma_points
-    end
+  def service_request_points
+    service_requests.joins(offers: :service_transactions)
+      .not.where(offers: {service_transactions: nil})
+      .map(:karma_points)
+      .reduce(:+)
+  end
+
+  def completed_offers
+    offers.where(aasm_state: :completed)
   end
 
   def offer_points
-    offer_transactions.reduce do |agg, transaction|
-      agg += transaction.offer.karma_points
-    end
+    completed_offers
+      .map(&:karma_points)
+      .reduce(:+)
   end
 
   def karma_points
