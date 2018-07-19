@@ -3,6 +3,7 @@ class Offer < ActiveRecord::Base
 
   belongs_to :service_request
   belongs_to :user
+  has_many :service_transactions
 
   aasm do
     state :pending, :initial => true
