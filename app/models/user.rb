@@ -26,6 +26,6 @@ class User < ActiveRecord::Base
   end
 
   def karma_points
-    offer_points - request_points
+    offer_points - service_request_points
   end
 end
