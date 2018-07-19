@@ -17,7 +17,7 @@
         </a>
           <div class='user-info'>
             <p class='karam-points'><%= @current_user.karma_points %> Karma Points </p>
-            <li>Welcome <a class="tab-link" href = "/users/1"><%= @current_user.name %></a></li>
+            <li>Welcome <a class="tab-link" href = "/users/<%= @current_user.id %>"><%= @current_user.name %></a></li>
           </div>
       </div>
       <div class='sub-nav-container'>
