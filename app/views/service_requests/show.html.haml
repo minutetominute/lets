@@ -28,7 +28,10 @@
             - if @service_request.user_id == @current_user.id
               - if offer.aasm_state == 'pending'
                 = link_to 'Accept Offer', service_request_offer_accept_path(@service_request.id, offer.id), method: :put, class: 'button accept'
+              - elsif offer.aasm_state == 'accepted' && offer.service_transactions.first.confirmation.service_requester_id == @current_user.id
+                %div
+                  Confirmed!
               - elsif offer.aasm_state == 'accepted'
-                = link_to 'Confirm', service_request_offer_complete_offer_as_requester_path(@service_request.id, offer.id), method: :put, class: 'button confirm'
+                = link_to 'Confirm', service_request_offer_complete_offer_as_requester_path(@service_request.id, offer.id), method: :put, class: 'button confir'
             - elsif offer.user_id == @current_user.id && offer.aasm_state == 'accepted'
               = link_to 'Confirm', service_request_offer_complete_offer_as_offerer_path(@service_request.id, offer.id), method: :put, class: 'button confirm'
