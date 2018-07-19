@@ -5,6 +5,8 @@ $dark_grey: #2D2B35;
 $whitish: #F6F6F4;
 $greyish: #9E949A;
 $gold: #92773C;
+$red_brown: #7B5F63;
+$jade: #00A86B;
 
 .offer-listing, .request-listing, .page-show-request {
   li {
@@ -114,12 +116,30 @@ $gold: #92773C;
     span {
       padding-left: 25px;
     }
+    .new-request {
+      top: 25px;
+      .button {
+        &.accept {
+          background-color: $red_brown;
+          &:hover {
+            background-color: darken($red_brown, 10%);
+          }
+        }
+        &.confirm {
+          background-color: $jade;
+          &:hover {
+            background-color: darken($jade, 10%);
+          }
+        }
+      }
+    }
     .new-offer {
       position: absolute;
       right: 25px;
       top: 0;
     }
     li {
+      position: relative;
       padding: 10px 25px;
       span {
         padding: 0;
