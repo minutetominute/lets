@@ -1,5 +1,5 @@
 class ServiceRequestsController < ApplicationController
-  before_action :current_user
+  before_action :current_user, :current_path
 
   def index
     @service_requests = ServiceRequest.all

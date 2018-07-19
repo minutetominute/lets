@@ -1,5 +1,5 @@
 class OffersController < ApplicationController
-  before_action :current_user
+  before_action :current_user, :current_path
   def create
     @offer = Offer.new
   end

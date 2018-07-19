@@ -1,5 +1,5 @@
 class UsersController < ApplicationController
-  before_action :current_user
+  before_action :current_user, :current_path
 
   def show
     @user = User.find(params[:id])
