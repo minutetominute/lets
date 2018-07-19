@@ -38,14 +38,6 @@ ActiveRecord::Schema.define(version: 20180719161000) do
     t.index ["user_id"], name: "index_offers_on_user_id"
   end
 
-  create_table "requests", force: :cascade do |t|
-    t.bigint "user_id"
-    t.text "description"
-    t.string "aasm_state"
-    t.string "title"
-    t.index ["user_id"], name: "index_requests_on_user_id"
-  end
-
   create_table "service_requests", force: :cascade do |t|
     t.bigint "user_id"
     t.text "description"
@@ -62,12 +54,6 @@ ActiveRecord::Schema.define(version: 20180719161000) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["offer_id"], name: "index_service_transactions_on_offer_id"
-  end
-
-  create_table "transactions", force: :cascade do |t|
-    t.bigint "offer_id"
-    t.string "aasm_state"
-    t.index ["offer_id"], name: "index_transactions_on_offer_id"
   end
 
   create_table "users", force: :cascade do |t|
