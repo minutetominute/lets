@@ -10,21 +10,17 @@
   </head>
 
   <body>
-    <div class='nav-container'>
-      <a class='logo-link' href='/'>
-        <div class='logo'></div>
-      </a>
-
-      <%- if @current_user %>
-      <div class='user-info'>
-        <li>Karma Points</li>
-        <li><a class="tab-link" href = "/users/1"><%= @current_user.name %></li>
-        <li><%= link_to "Log out", logout_path, method: :delete %></li>
-      </div>
-
-      <%- end %>
-    </div>
     <%- if @current_user %>
+      <div class='nav-container'>
+        <a class='logo-link' href='/'>
+          <div class='logo'></div>
+        </a>
+          <div class='user-info'>
+            <li>Karma Points</li>
+            <li><a class="tab-link" href = "/users/1"><%= @current_user.name %></li>
+            <li><%= link_to "Log out", logout_path, method: :delete %></li>
+          </div>
+      </div>
       <div class='sub-nav-container'>
         <div class='tab-listing'>
           <li><a class="tab-link <%= @current_uri == '/' ? 'active' : ''%>" href="/">All</a></li>

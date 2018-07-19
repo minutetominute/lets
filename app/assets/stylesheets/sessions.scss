@@ -1,0 +1,35 @@
+$grey: #D9DDDC;
+$whitish: #F6F6F4;
+
+.new-session {
+  background-color: $grey;
+  height: 100vh;
+  margin-top: -20px;
+  padding-bottom: 40px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  .session {
+    width: 50%;
+    form {
+      margin: 0;
+      padding: 25px 0;
+      background-color: $whitish;
+    }
+  }
+  .banner {
+    background: linear-gradient(0deg,rgba(0,0,0,0.5),rgba(0,0,0,0.5)), image-url('connect.jpg');
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    height: 150px;
+    align-items: center;
+    display: flex;
+    justify-content: center;
+    color: white;
+    small {
+      display: block;
+    }
+  }
+}
