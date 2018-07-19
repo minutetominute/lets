@@ -84,6 +84,16 @@ a:link {
   }
 }
 
+.new-offer {
+  .button {
+    background-color: $gold;
+    color: white;
+    &:hover {
+      background-color: darken($gold,10%);;
+    }
+  }
+}
+
 .sub-nav-container {
   background-color: $whitish;
   .tab-listing {
