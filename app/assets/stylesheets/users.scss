@@ -70,3 +70,50 @@ $jade: #00A86B;
     }
   }
 }
+
+.user-profile {
+  display: flex;
+  flex-direction: column;
+  padding: 0;
+  .image {
+    background-image: image-url('profile-default.gif');
+    width: 25%;
+    padding-bottom: 25%;
+    background-position: center;
+    background-size: cover;
+    background-repeat: no-repeat;
+  }
+  .profile-details {
+    >div {
+      margin: 15px 0;
+    }
+    label {
+      display: block;
+      font-weight: bold;
+      text-transform: uppercase;
+      letter-spacing: .5px;
+    }
+  }
+  .profile-banner {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+  }
+  .profile-transactions {
+    padding: 0 50px;
+    table {
+      width: 100%;
+    }
+    th, td {
+      height: 35px
+    }
+    th {
+      background-color: $whitish;
+    }
+    table, th, td {
+      border: 1px solid black;
+      text-align: center;
+    }
+  }
+}

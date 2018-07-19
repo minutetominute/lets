@@ -1,13 +1,17 @@
 %ul.user-profile
   %div.new-request
     = link_to "Log out", logout_path, method: :delete, class: 'button logout'
-  %div.image
-  = image_tag "micky.png"
-  %li
-    Name:
-  %li=@user.name
-  %li
-    Karma Points:
-  %li=@user.karma_points
+  %div.profile-banner
+    %div.image
+    %div.profile-details
+      %div
+        %label
+          Name:
+          = @user.name
+      %div
+        %label
+          Karma Points:
+          = @user.karma_points
 
-  = render :partial => 'transaction_history'
+  %div.profile-transactions
+    = render :partial => 'transaction_history'

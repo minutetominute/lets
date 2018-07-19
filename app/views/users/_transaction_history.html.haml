@@ -1,15 +1,18 @@
 %div
-  Transaction History
-  - @user.render_transaction_history.each do |transaction|
-    %div
-      %span Request:
-      =transaction[:request]
-    %div
-      %span Member Name:
-      =transaction[:member_name]
-    %div
-      %span Points:
-      =transaction[:points]
-    %div
-      %span Date:
-      =transaction[:date]
+  %h3 Transaction History
+  %table
+    %tr
+      %th Request Title
+      %th Contact Person
+      %th Karam Points
+      %th Transaction Date
+    - @user.render_transaction_history.each do |transaction|
+      %tr
+        %td
+          = transaction[:request]
+        %td
+          = transaction[:member_name]
+        %td
+          = transaction[:points]
+        %td
+          = transaction[:points]
