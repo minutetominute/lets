@@ -1,4 +1,6 @@
 $whitish: #F6F6F4;
+$red_brown: #7B5F63;
+$dark_red: #800000;
 
 .error-message {
   display: flex;
@@ -27,13 +29,29 @@ $whitish: #F6F6F4;
 .page-offer-list {
   .offer-listing {
     margin: 0;
+    li {
+      position: relative;
+      height: 100px;
+    }
   }
   .offer-actions {
+    position: absolute;
+    right: 25px;
     .button {
-      background-color: $whitish;
-      color: black;
-      &:hover {
-        background-color: darken($whitish,10%);;
+      &.default {
+        background-color: $red_brown;
+        color: white;
+        &:hover {
+          background-color: darken($red_brown,10%);;
+        }
+      }
+      &.cancel {
+        color: black;
+        background-color: lighten($red_brown,50%);
+        &:hover {
+          background-color: $dark_red;
+          color: white;
+        }
       }
     }
   }

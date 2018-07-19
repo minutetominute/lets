@@ -11,6 +11,7 @@
             = offer.description
           %div.offer-actions
             = link_to 'View Request', "/service_requests/#{offer.service_request_id}", class: 'button default'
+            = link_to 'Cancel Request', "/offers/#{offer.id}/cancel", class: 'button cancel'
     - else
       %div.error-message
         %h3 You have not submitted any offers
