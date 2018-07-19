@@ -53,4 +53,8 @@ class User < ActiveRecord::Base
       debits: debits
     }
   end
+
+  def render_transaction_history
+    history = [{request: "abc", member_name:'name', points:5, date:'01/01/2018'}]
+  end
 end
