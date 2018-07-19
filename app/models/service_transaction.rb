@@ -19,7 +19,7 @@ class ServiceTransaction < ActiveRecord::Base
       transitions :from => :open, :to => :cancelled
     end
 
-    event :confirmation_added do
+    event :confirmation_added, :after => :complete_offer! do
       transitions :from => :open,
         :to => :completed,
         :guard => :parties_agree?
