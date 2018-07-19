@@ -3,7 +3,7 @@ Rails.application.routes.draw do
   get "/" => "service_requests#index"
 
   resources :service_requests
-  get "/accept" => "services_request#accept"
+  get "/show/:id", to: "service_requests#show"
 
   get "/offer/new", to: "offers#create"
 
