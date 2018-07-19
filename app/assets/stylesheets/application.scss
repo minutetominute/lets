@@ -63,6 +63,24 @@ a:link {
   }
 }
 
+.new-request {
+  position: absolute;
+  right: 25px;
+  .button {
+    background-color: $gold;
+    text-transform: uppercase;
+    padding: 10px;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    letter-spacing: .5px;
+    font-size: 14px;
+    &:hover {
+      background-color: darken($gold,10%);;
+    }
+  }
+}
+
 .sub-nav-container {
   background-color: $whitish;
   .tab-listing {
@@ -89,23 +107,6 @@ a:link {
       height: 100%;
       text-align: center;
       width: 150px;
-    }
-  }
-  .new-request {
-    position: absolute;
-    right: 25px;
-    .button {
-      background-color: $gold;
-      text-transform: uppercase;
-      padding: 10px;
-      color: white;
-      border: none;
-      border-radius: 5px;
-      letter-spacing: .5px;
-      font-size: 14px;
-      &:hover {
-        background-color: darken($gold,10%);;
-      }
     }
   }
 }

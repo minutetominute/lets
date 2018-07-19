@@ -1,0 +1,23 @@
+.error-message {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  min-height: 500px;
+  h3 {
+    text-transform: uppercase;
+  }
+  .error-img {
+    background-image: image-url('error-pic.gif');
+    width: 25%;
+    padding-bottom: 25%;
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+  }
+  .new-request {
+    position: relative;
+    right: unset;
+    margin-top: 25px;
+  }
+}

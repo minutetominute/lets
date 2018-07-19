@@ -1,0 +1,11 @@
+%div.request-listing
+  - if @service_requests.any?
+    - @service_requests.each do |request|
+      %li
+        %a= link_to(request.title, "/service_requests/#{request.id}")
+  - else
+    %div.error-message
+      %h3 No Requests Found
+      %div.error-img
+      %div.new-request
+        = link_to 'New Request', '/service_requests/new', class: 'button'

@@ -24,7 +24,10 @@ class ServiceRequestsController < ApplicationController
     end
   end
 
+  private
+
   def service_request_params
     params.require(:service_request).permit(:title, :description)
   end
+
 end

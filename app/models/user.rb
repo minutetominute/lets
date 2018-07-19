@@ -4,6 +4,9 @@ class User < ActiveRecord::Base
       offers: { aasm_state: :completed }
     )
   }
+  
+  has_many :offers
+  has_many :service_requests
   has_many :offer_transactions, through: :offer
   has_many :request_transactions, through: :transactions
 

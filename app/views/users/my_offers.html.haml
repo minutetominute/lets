@@ -1,0 +1,16 @@
+%div.offer-listing
+  - if @offers.any?
+    - @offers.each do |offer|
+      %li
+        %div
+          %span Karam Points:
+          = offer.karma_points
+        %div
+          %span Description:
+          = offer.description
+  - else
+    %div.error-message
+      %h3 You have not submitted any offers
+      %div.error-img
+      %div.new-request
+        = link_to 'Find Requests', '/', class: 'button'
