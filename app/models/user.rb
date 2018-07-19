@@ -56,11 +56,15 @@ class User < ActiveRecord::Base
   end
 
   def confirm_request_service_transaction!(service_transaction_id)
-    ServiceTransaction.find(service_transaction_id)
+    confirmation = Confirmation.find(service_transaction_id)
+    confirmation.requester = self
+    confirmation.save!
   end
 
   def confirm_offer_service_transaction!(service_transaction_id)
-    ServiceTransaction.find(service_transaction_id)
+    confirmation = Confirmation.find(service_transaction_id)
+    confirmation.offerer = self
+    confirmation.save!
   end
 
   def render_transaction_history
