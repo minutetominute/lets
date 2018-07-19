@@ -28,4 +28,29 @@ class User < ActiveRecord::Base
   def karma_points
     offer_points - service_request_points
   end
+
+  def credit_transactions
+    credit_transactions = completed_offers
+      .map(&:service_transactions)
+      .flatten
+  end
+
+  def debit_transactions
+    debit_transactions = completed_service_request_offers
+      .map(&:service_transactions)
+      .flatten
+  end
+
+  def transaction_history
+    credits = credit_transactions.select do |tx|
+      tx.completed?
+    end
+    debits = debit_transactions.select do |tx|
+      tx.completed?
+    end
+    {
+      credits: credits,
+      debits: debits
+    }
+  end
 end
