@@ -6,7 +6,7 @@
     %span Description:
     = @service_request.description
   %div.new-offer
-    = link_to 'New Offer', '/offer/new', class: 'button'
+    = link_to 'New Offer', new_service_request_offer_path(@service_request), class: 'button'
   %div.offer-listing
     %span Offers:
     - @service_request.offers.each do |offer|

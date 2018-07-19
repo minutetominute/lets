@@ -11,7 +11,7 @@
             = offer.description
           %div.offer-actions
             - if offer.aasm_state != 'cancelled'
-              = link_to 'Cancel Offer', "/offers/#{offer.id}/cancel", method: :put, class: 'button cancel'
+              = link_to 'Cancel Offer', service_request_offer_cancel_path(offer.service_request_id, offer.id), method: :put, class: 'button cancel'
             = link_to 'View Request', "/service_requests/#{offer.service_request_id}", class: 'button default'
             %p
               Status:
