@@ -72,8 +72,16 @@ class User < ActiveRecord::Base
   end
 
   def render_transaction_history
-    history = [{request: "abc", member_name:'name1', points:5, date:'01/01/2018'},
-               {request: "def", member_name:'name2', points:10, date:'03/01/2018'},
-               {request: "lll", member_name:'name3', points:-10, date:'07/01/2018'}]
+    puts transaction_history[:credits]
+    meta1 = (transaction_history[:credits]).map do |trans|
+      {request: trans.service_request.title, member_name: trans.offer.user.name, points: trans.offer.karma_points, date: trans.created_at}
+    end
+
+    meta2 = (transaction_history[:debits]).map do |trans|
+      {request: trans.service_request.title, member_name: trans.offer.user.name, points: -trans.offer.karma_points, date: trans.created_at}
+    end
+    (meta1+meta2).sort do |el|
+      el[:date]
+    end
   end
 end
