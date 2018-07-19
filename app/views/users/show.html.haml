@@ -1,4 +1,6 @@
 %ul.user-profile
+  %div.bg
+    = @user.karma_points
   %div.new-request
     = link_to "Log out", logout_path, method: :delete, class: 'button logout'
   %div.profile-banner

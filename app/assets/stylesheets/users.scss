@@ -75,6 +75,17 @@ $jade: #00A86B;
   display: flex;
   flex-direction: column;
   padding: 0;
+  .bg {
+    position: absolute;
+    z-index: -1;
+    opacity: 0.05;
+    font-size: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    width: 100%;
+  }
   .image {
     background-image: image-url('profile-default.gif');
     width: 25%;
@@ -110,6 +121,9 @@ $jade: #00A86B;
     }
     th {
       background-color: $whitish;
+    }
+    td {
+      background-color: white;
     }
     table, th, td {
       border: 1px solid black;
