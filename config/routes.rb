@@ -6,6 +6,9 @@ Rails.application.routes.draw do
   resources :service_requests do
     resources :offers do
       put 'cancel', to: 'offers#cancel'
+      put 'accept', to: 'offers#accept'
+      put 'complete_offer_as_requester', to: 'offers#complete_offer_as_requester'
+      put 'complete_offer_as_offerer', to: 'offers#complete_offer_as_offerer'
     end
   end
 

@@ -5,6 +5,9 @@
   %div.description
     %span Description:
     = @service_request.description
+  %div.description
+    %span Status:
+    = @service_request.aasm_state
   %div.offer-listing
     %span Offers:
     %div.new-offer
@@ -17,3 +20,12 @@
         %div
           %span Description:
           = offer.description
+        %div
+          - if !@service_request.completed?
+            - if @service_request.user_id == @current_user.id
+              - if offer.aasm_state == 'pending'
+                = link_to 'Accept Offer', service_request_offer_accept_path(@service_request.id, offer.id), method: :put, class: 'button'
+              - elsif offer.aasm_state == 'accepted'
+                = link_to 'Confirm', service_request_offer_complete_offer_as_requester_path(@service_request.id, offer.id), method: :put, class: 'button'
+            - elsif offer.user_id == @current_user.id && offer.aasm_state == 'accepted'
+              = link_to 'Confirm', service_request_offer_complete_offer_as_offerer_path(@service_request.id, offer.id), method: :put, class: 'button'

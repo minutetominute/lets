@@ -25,6 +25,28 @@ class OffersController < ApplicationController
     redirect_to '/'
   end
 
+  def accept
+    @offer = Offer.find(params[:offer_id])
+    @offer.accept!
+    redirect_to service_request_path(@offer.service_request)
+  end
+
+  def complete_offer_as_requester
+    @offer = Offer.find(params[:offer_id])
+    @service_transaction = @offer.service_transactions.first
+    @current_user.confirm_request_service_transaction!(@service_transaction.id)
+
+    redirect_to service_request_path(@offer.service_request)
+  end
+
+  def complete_offer_as_offerer
+    @offer = Offer.find(params[:offer_id])
+    @offer.complete!
+    @current_user.confirm_offer_service_transaction!
+
+    redirect_to service_request_path(@offer.service_request)
+  end
+
   private
 
   def offer_params
