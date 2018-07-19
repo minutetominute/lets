@@ -5,6 +5,8 @@
   %div.description
     %span Description:
     = @service_request.description
+  %div
+    = link_to 'New Offer', '/offer/new', class: 'button'
   %div.offer-listing
     %span Offers:
     - @service_request.offers.each do |offer|
