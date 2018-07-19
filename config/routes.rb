@@ -11,4 +11,6 @@ Rails.application.routes.draw do
   get "/my_offers" => "users#my_offers"
 
   resources :sessions
+
+  delete '/logout',  to: 'sessions#destroy'
 end

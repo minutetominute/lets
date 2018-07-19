@@ -1,7 +1,16 @@
 class ApplicationController < ActionController::Base
   protect_from_forgery with: :exception
+  before_action :require_login
 
   def current_user
-    @current_user ||= session[:user_id] ? User.find(session[:user_id]) : User.first
+    @current_user ||= User.find(session[:user_id]) if session[:user_id]
+  end
+
+  private
+
+  def require_login
+    unless current_user
+      redirect_to '/sessions/new'
+    end
   end
 end
