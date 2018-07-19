@@ -5,10 +5,10 @@
   %div.description
     %span Description:
     = @service_request.description
-  %div.new-offer
-    = link_to 'New Offer', new_service_request_offer_path(@service_request), class: 'button'
   %div.offer-listing
     %span Offers:
+    %div.new-offer
+      = link_to 'New Offer', new_service_request_offer_path(@service_request), class: 'button'
     - @service_request.offers.each do |offer|
       %li
         %div

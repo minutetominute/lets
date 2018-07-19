@@ -110,8 +110,14 @@ $gold: #92773C;
   }
   .offer-listing {
     padding: 0;
+    position: relative;
     span {
       padding-left: 25px;
+    }
+    .new-offer {
+      position: absolute;
+      right: 25px;
+      top: 0;
     }
     li {
       padding: 10px 25px;
