@@ -1,4 +1,13 @@
 %ul.user-profile
+  %div.image
   = image_tag "micky.png"
+  %li
+    Name:
   %li=@user.name
-  /%li=@user.karma_points
+  %li
+    Karma Points:
+  %li=@user.karma_points
+
+  %li
+    Transaction History:
+    

@@ -12,7 +12,7 @@ class User < ActiveRecord::Base
   def service_request_points
     completed_service_request_offers
       .map(&:karma_points)
-      .reduce(:+)
+      .reduce(:+) || 0
   end
 
   def completed_offers
@@ -22,7 +22,7 @@ class User < ActiveRecord::Base
   def offer_points
     completed_offers
       .map(&:karma_points)
-      .reduce(:+)
+      .reduce(:+) || 0
   end
 
   def karma_points
