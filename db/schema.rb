@@ -18,10 +18,12 @@ ActiveRecord::Schema.define(version: 20180719161000) do
   create_table "confirmations", force: :cascade do |t|
     t.bigint "offerer_id"
     t.bigint "requester_id"
+    t.bigint "transaction_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["offerer_id"], name: "index_confirmations_on_offerer_id"
     t.index ["requester_id"], name: "index_confirmations_on_requester_id"
+    t.index ["transaction_id"], name: "index_confirmations_on_transaction_id"
   end
 
   create_table "offers", force: :cascade do |t|
