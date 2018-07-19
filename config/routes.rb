@@ -4,8 +4,6 @@ Rails.application.routes.draw do
 
   resources :service_requests
 
-  get "/accept" => "services_request#accept"
-
   get "/offer/new", to: "offers#create"
 
   get "/users/:id" => "users#show"
