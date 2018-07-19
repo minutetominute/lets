@@ -56,6 +56,8 @@ class User < ActiveRecord::Base
   end
 
   def render_transaction_history
-    history = [{request: "abc", member_name:'name', points:5, date:'01/01/2018'}]
+    history = [{request: "abc", member_name:'name1', points:5, date:'01/01/2018'},
+               {request: "def", member_name:'name2', points:10, date:'03/01/2018'},
+               {request: "lll", member_name:'name3', points:-10, date:'07/01/2018'}]
   end
 end
