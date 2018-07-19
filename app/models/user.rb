@@ -2,10 +2,16 @@ class User < ActiveRecord::Base
   has_many :offers
   has_many :service_requests
 
+  def completed_service_request_offers
+    ServiceTransaction.where(aasm_state: :completed)
+      .includes(offer: :service_request)
+      .where(offer: {service_requests: {user_id: id}})
+      .map(&:offer)
+  end
+
   def service_request_points
-    service_requests.joins(offers: :service_transactions)
-      .not.where(offers: {service_transactions: nil})
-      .map(:karma_points)
+    completed_service_request_offers
+      .map(&:karma_points)
       .reduce(:+)
   end
 
