@@ -3,6 +3,7 @@ class ServiceTransaction < ActiveRecord::Base
 
   belongs_to :offer
   delegate :service_request, :to => :offer
+  has_one :confirmation
 
   aasm do
     state :open, initial: true
@@ -28,7 +29,7 @@ class ServiceTransaction < ActiveRecord::Base
   end
 
   def parties_agree?
-    # check if both requester and offerer have agreed
+    confirmation.requester? && confirmation.offerer?
   end
 
 end

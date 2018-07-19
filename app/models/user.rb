@@ -55,6 +55,14 @@ class User < ActiveRecord::Base
     }
   end
 
+  def confirm_request_service_transaction!(service_transaction_id)
+    ServiceTransaction.find(service_transaction_id)
+  end
+
+  def confirm_offer_service_transaction!(service_transaction_id)
+    ServiceTransaction.find(service_transaction_id)
+  end
+
   def render_transaction_history
     history = [{request: "abc", member_name:'name1', points:5, date:'01/01/2018'},
                {request: "def", member_name:'name2', points:10, date:'03/01/2018'},
