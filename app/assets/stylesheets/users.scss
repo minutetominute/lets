@@ -1,6 +1,7 @@
 $whitish: #F6F6F4;
 $red_brown: #7B5F63;
 $dark_red: #800000;
+$jade: #00A86B;
 
 .error-message {
   display: flex;
@@ -31,12 +32,25 @@ $dark_red: #800000;
     margin: 0;
     li {
       position: relative;
-      height: 100px;
+      height: 115px;
     }
   }
   .offer-actions {
     position: absolute;
     right: 25px;
+    text-align: right;
+    p {
+      display: block !important;
+      margin-top: 15px;
+      span {
+        &.green {
+          color: $jade;
+        }
+        &.red {
+          color: $dark_red;
+        }
+      }
+    }
     .button {
       &.default {
         background-color: $red_brown;

@@ -10,8 +10,13 @@
             %span Description:
             = offer.description
           %div.offer-actions
+            - if offer.aasm_state != 'cancelled'
+              = link_to 'Cancel Offer', "/offers/#{offer.id}/cancel", method: :put, class: 'button cancel'
             = link_to 'View Request', "/service_requests/#{offer.service_request_id}", class: 'button default'
-            = link_to 'Cancel Request', "/offers/#{offer.id}/cancel", class: 'button cancel'
+            %p
+              Status:
+              %span{class: "#{offer.aasm_state === 'cancelled' ? 'red' : 'green'}"}
+                = offer.aasm_state
     - else
       %div.error-message
         %h3 You have not submitted any offers

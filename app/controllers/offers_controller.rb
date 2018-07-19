@@ -4,4 +4,9 @@ class OffersController < ApplicationController
     @offer = Offer.new
   end
 
+  def cancel
+    Offer.find(params[:id]).cancel!
+    redirect_to '/'
+  end
+
 end
