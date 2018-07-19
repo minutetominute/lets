@@ -16,7 +16,6 @@ class ServiceRequestsController < ApplicationController
   def create
     @service_request = ServiceRequest.new(service_request_params)
 
-    byebug
     if @service_request.save
       redirect_to @service_request
     else
@@ -25,6 +24,6 @@ class ServiceRequestsController < ApplicationController
   end
 
   def service_request_params
-    params.require(:service_request).permit(:title, :description)
+    params.require(:service_request).permit(:title, :description, :user_id)
   end
 end
