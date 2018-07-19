@@ -7,11 +7,6 @@ Rails.application.routes.draw do
 
   get "/offer/new", to: "offers#create"
 
-
-  get "/profiles", to: "profiles#profile"
-
-  get "/profiles" => "profiles#profile"
-
   get "/users/:id" => "users#show"
 
   resources :sessions
