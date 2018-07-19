@@ -16,16 +16,15 @@
           <div class='logo'></div>
         </a>
           <div class='user-info'>
-            <li>Karma Points</li>
-            <li><a class="tab-link" href = "/users/1"><%= @current_user.name %></li>
-            <li><%= link_to "Log out", logout_path, method: :delete %></li>
+            <p class='karam-points'><%= @current_user.karma_points %> Karma Points </p>
+            <li>Welcome <a class="tab-link" href = "/users/1"><%= @current_user.name %></a></li>
           </div>
       </div>
       <div class='sub-nav-container'>
         <div class='tab-listing'>
           <li><a class="tab-link <%= @current_uri == '/' ? 'active' : ''%>" href="/">All</a></li>
-            <li><a class="tab-link <%= @current_uri == '/my_requests' ? 'active' : ''%>" href="/my_requests">My Requests</a></li>
-            <li><a class="tab-link <%= @current_uri == '/my_offers' ? 'active' : ''%>" href="/my_offers">My Offers</a></li>
+          <li><a class="tab-link <%= @current_uri == '/my_requests' ? 'active' : ''%>" href="/my_requests">My Requests</a></li>
+          <li><a class="tab-link <%= @current_uri == '/my_offers' ? 'active' : ''%>" href="/my_offers">My Offers</a></li>
         </div>
         <div class='new-request'>
           <%= link_to 'New Request', '/service_requests/new', class: 'button' %>

@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20180718204124) do
+ActiveRecord::Schema.define(version: 20180719160926) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -21,8 +21,18 @@ ActiveRecord::Schema.define(version: 20180718204124) do
     t.integer "karma_points"
     t.text "description"
     t.string "aasm_state"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
     t.index ["service_request_id"], name: "index_offers_on_service_request_id"
     t.index ["user_id"], name: "index_offers_on_user_id"
+  end
+
+  create_table "requests", force: :cascade do |t|
+    t.bigint "user_id"
+    t.text "description"
+    t.string "aasm_state"
+    t.string "title"
+    t.index ["user_id"], name: "index_requests_on_user_id"
   end
 
   create_table "service_requests", force: :cascade do |t|
@@ -30,17 +40,29 @@ ActiveRecord::Schema.define(version: 20180718204124) do
     t.text "description"
     t.string "aasm_state"
     t.string "title"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
     t.index ["user_id"], name: "index_service_requests_on_user_id"
   end
 
   create_table "service_transactions", force: :cascade do |t|
     t.bigint "offer_id"
     t.string "aasm_state"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
     t.index ["offer_id"], name: "index_service_transactions_on_offer_id"
+  end
+
+  create_table "transactions", force: :cascade do |t|
+    t.bigint "offer_id"
+    t.string "aasm_state"
+    t.index ["offer_id"], name: "index_transactions_on_offer_id"
   end
 
   create_table "users", force: :cascade do |t|
     t.string "name"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
   end
 
 end

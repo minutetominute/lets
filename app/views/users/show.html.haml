@@ -1,4 +1,6 @@
 %ul.user-profile
+  %div.new-request
+    = link_to "Log out", logout_path, method: :delete, class: 'button logout'
   %div.image
   = image_tag "micky.png"
   %li

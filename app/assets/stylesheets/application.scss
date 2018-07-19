@@ -34,21 +34,20 @@ a:link {
   position: relative;
   display: flex;
   align-items: center;
-  height: 50px;
-
 }
 .nav-container {
   color: #fff;
+  height: 75px;
   background-color: $dark_grey;
   .logo-link {
     width: 150px;
-    height: 50px;
+    height: 75px;
     display: flex;
     align-items: center;
     .logo {
       background-image: image-url('lets-work-logo-white.png');
       width: 100%;
-      height: 35px;
+      height: 45px;
       background-size: cover;
       background-position: center;
       background-repeat: no-repeat;
@@ -56,9 +55,20 @@ a:link {
   }
   .user-info {
     position: absolute;
-    right: 0;
+    right: 25px;
+    text-align: right;
     li{
-      display: inline-block;
+      display: block;
+      a {
+        color: $whitish;
+        &:hover {
+          color: $gold;
+        }
+      }
+    }
+    .karam-points {
+      margin: 5px 0;
+      font-size: 12px;
     }
   }
 }
@@ -81,6 +91,12 @@ a:link {
     &:hover {
       background-color: darken($gold,10%);;
     }
+    &.logout {
+      background-color: $greyish;
+      &:hover {
+        background-color: darken($greyish,10%);;
+      }
+    }
   }
 }
 
@@ -96,6 +112,7 @@ a:link {
 
 .sub-nav-container {
   background-color: $whitish;
+  height: 50px;
   .tab-listing {
     height: 100%;
     a.tab-link {
