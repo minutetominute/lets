@@ -6,7 +6,7 @@ $whitish: #F6F6F4;
 $greyish: #9E949A;
 $gold: #92773C;
 
-.request-listing, .page-show-request {
+.offer-listing, .request-listing, .page-show-request {
   li {
     list-style: none;
     &:nth-child(even) {
@@ -96,7 +96,7 @@ $gold: #92773C;
   }
 }
 
-.page-show-request {
+.page-show-request, .page-offer-list {
   >div {
     margin: 50px 0;
     padding: 0 25px;
@@ -111,7 +111,7 @@ $gold: #92773C;
   .offer-listing {
     padding: 0;
     span {
-      padding: 0 25px;
+      padding-left: 25px;
     }
     li {
       padding: 10px 25px;
