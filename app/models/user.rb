@@ -74,7 +74,7 @@ class User < ActiveRecord::Base
   def render_transaction_history
     puts transaction_history[:credits]
     meta1 = (transaction_history[:credits]).map do |trans|
-      {request: trans.service_request.title, member_name: trans.offer.user.name, points: trans.offer.karma_points, date: trans.created_at}
+      {request: trans.service_request.title, member_name: trans.offer.service_request.user.name, points: trans.offer.karma_points, date: trans.created_at}
     end
 
     meta2 = (transaction_history[:debits]).map do |trans|
