@@ -68,6 +68,11 @@ requests.sample(requests.count * percent_completed).each do |request|
   completed_transaction = ServiceTransaction.create!(
       offer: completed_offer
   )
+  completed_transaction.accept!
+  offerer = completed_offer.user
+  requester = completed_offer.request.user
+  offerer.confirm_offer_service_transaction!(completed_transaction.id)
+  requester.confirm_request_service_transaction!(completed_transaction.id)
   completed_transaction.complete!
 
   cancelled_offer = (pending_offers - [completed_offer]).sample
